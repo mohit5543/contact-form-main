@@ -17,11 +17,11 @@ Users are able to:
 
 ### 📸 Screenshot
 
-![alt text](design/desktop-preview.jpg)
+![Desktop Design](design/desktop-preview.jpg)
 
 ### 🔗 Live Preview
 
-- Live Site URL: [Add Live Site Link Here](#)
+- Live Site URL: [Click Here](https://mohit5543.github.io/contact-form-main/)
 
 ---
 
@@ -53,8 +53,8 @@ This project helped reinforce:
 
 ## 👤 Author
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Frontend Mentor: [@yourFrontendMentorUsername](https://www.frontendmentor.io/profile/yourFrontendMentorUsername)
+- GitHub: [@mohit5543](https://github.com/mohit5543)
+- Frontend Mentor: [@mohit5543](https://www.frontendmentor.io/profile/mohit5543)
 
 ---
 
