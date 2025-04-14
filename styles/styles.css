@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+
+.karla-400 {
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.karla-700 {
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/*root */
+
+:root {
+  --green-200: hsl(148, 38%, 91%);
+  --green-600: hsl(169, 82%, 27%);
+  --red: hsl(0, 66%, 54%);
+  --white: hsl(0, 0%, 100%);
+  --grey-500: hsl(186, 15%, 59%);
+  --grey-900: hsl(187, 24%, 22%);
+}
+
+/*body*/
+
+body {
+  background-color: var(--green-200);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+/*main*/
+
+.container {
+  background-color: var(--white);
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+}
+
+.container h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--grey-900);
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/*name-wrapper*/
+.name-wrapper {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.name-wrapper .form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  color: var(--grey-900);
+}
+
+/* Add required field indicator */
+.form-group label[for]:has(+ input[required]),
+.form-group label:has(+ textarea[required]) {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.form-group label[for]:has(+ input[required])::after,
+.form-group label:has(+ textarea[required])::after {
+  content: "*";
+  color: var(--green-600);
+}
+
+/* Special case for radio group label */
+.form-group:has(.radio-group) > label::after {
+  content: "*";
+  color: var(--green-600);
+  margin-left: 0.25rem;
+}
+
+/* Special case for checkbox label */
+.checkbox-label:has(input[required])::after {
+  content: "*";
+  color: var(--green-600);
+  margin-left: 0.25rem;
+}
+
+.form-group input {
+  padding: 0.75rem;
+  border: 1px solid var(--grey-500);
+  border-radius: 4px;
+  font-size: 1rem;
+  max-height: 10px;
+  accent-color: var(--green-600);
+}
+
+.form-group textarea {
+  max-height: 50px;
+  resize: none;
+  padding: 0.75rem;
+  border: 1px solid var(--grey-500);
+  border-radius: 4px;
+  font-size: 1rem;
+  overflow-y: auto;
+  accent-color: var(--green-600);
+}
+
+.radio-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  border: 1px solid var(--grey-500);
+  border-radius: 4px;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Style for selected radio option */
+.radio-label:has(input[type="radio"]:checked) {
+  background-color: var(--green-200);
+  border-color: var(--green-600);
+}
+
+/* Keep the accent color for the radio input itself */
+.radio-label input[type="radio"] {
+  margin-right: 0.5rem;
+  accent-color: var(--green-600);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-right: 0.5rem;
+  accent-color: var(--green-600);
+}
+
+/*submit-btn*/
+
+.submit-btn {
+  background-color: var(--green-600);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: var(--grey-900);
+  transition: background-color 0.3s ease;
+}
+
+/*error message*/
+
+.error-message {
+  display: none;
+  color: var(--red);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.error-message.visible {
+  display: block;
+}
+
+.form-group input.error,
+.form-group textarea.error {
+  border-color: var(--red);
+}
+
+.radio-group.error {
+  border-color: var(--red);
+}
+
+.checkbox-label.error {
+  color: var(--red);
+}
+
+/* Success message popup */
+.hidden {
+  display: none;
+}
+
+.success-message {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--grey-900);
+  padding: 1.5rem 2.5rem;
+  border-radius: 10px;
+  text-align: left;
+  z-index: 1000;
+  animation: slideDown 0.3s ease-out;
+}
+
+.success-message h2 {
+  color: var(--white);
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.success-message p {
+  color: var(--white);
+  font-size: 0.9rem;
+  margin: 0;
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.success-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+/* Remove the form hiding class since we don't need it anymore */
+.contact-form.hidden {
+  display: flex;
+}
